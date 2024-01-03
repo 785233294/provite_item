@@ -1,13 +1,16 @@
 // 引入vue\vuex
 import Vue from "vue";
 import Vuex from "vuex";
+import user from "./modules/user";
+
+Vue.use(Vuex);
 
 // 使用vuex
 /*
 Tip:在这里可能有些人会疑惑,vuex为什么在store==>index.js中引用并使用,
 因为在main.js中引入并使用Vue.use(vuex)会导致一个顺序问题,先解析store后执行Vue.use(vuex),
-*/
-Vue.use(Vuex);
+
+
 
 // 响应式组件的动作
 const actions = {};
@@ -31,6 +34,7 @@ const store = new Vuex.Store({
 
 // 暴露store 使其他VueComponents可以使用   简称vc组件实例对象
 export default store;
+*/
 
 // Vuex模块化+命名空间
 /*
@@ -44,40 +48,11 @@ export default store;
 可以都写到index.js里，也可以每个命名空间分别拆成多个js文件
 
 
-const countAbout = {
-    namespaced:true,//开启命名空间
-    state:{x:1},
-    mutations: {
-        //...
-     },
-    actions: {
-        //...
-      },
-    getters: {
-         //...
-    }
-    }
 
-    const personAbout = {
-    namespaced:true,//开启命名空间
-        state: {
-        //...
-    },
-    mutations: {
-        //...
-     },
-    actions: {
-        //...
-      },
-    getters: {
-         //...
-    }
-    }
-
-    const store = new Vuex.Store({
-    modules: {
-     countAbout,
-     personAbout
-    }
- })
 */
+const store = new Vuex.Store({
+  modules: {
+    user,
+  },
+});
+export default store;
